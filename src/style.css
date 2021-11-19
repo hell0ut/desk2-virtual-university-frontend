@@ -1,0 +1,220 @@
+header{
+    margin-left: 1%;
+    margin-right: 1%;
+    padding-top: 20px;
+    height: 90px;
+}
+
+
+.hd_style{
+    font-style: italic;
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+.learn{
+    color:#ff9933;
+
+}
+
+.more{
+ color: #9999ff;
+}
+
+.explore{
+    color: #99cc99;
+}
+
+.our{
+    color: #a1a1a1;
+
+}
+
+
+.courses{
+    color: #669966;
+}
+
+.side_menu_el{
+    margin-top: 40px;
+
+}
+
+.hat{
+    margin-top: 30px;
+    height: 40px;
+
+}
+
+.card_size{
+    height:250px;
+
+}
+
+
+.info{
+    padding-right: 1.5rem;
+    padding-left:  1.5rem;
+}
+
+.digit{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+
+.tabs{
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    font-size: 20px;
+}
+
+.tabs1{
+    background: #ffffad;
+
+}
+
+.tabs2{
+    background: #adadff;
+
+}
+.tabs3{
+    background: #add685;
+
+}
+
+
+.deadlines{
+    display: flex;
+    background: #85ad33;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+
+}
+
+.exams{
+    display: flex;
+    background: #6666cc ;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.schedule{
+    display: flex;
+    background: #cc6600;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+
+}
+
+
+.lists{
+    justify-content: center;
+    display: flex;
+    background: #f3f3f3;
+
+}
+
+
+.vtabs{
+    margin-top: 90px;
+
+}
+
+
+.my-courses{
+    font-size: 2vw;
+    color: #13023f;
+
+}
+
+
+.arrows{
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+
+.box{
+    width: 40px;
+    height: 40px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+.titlecard{
+    font-weight: bold;
+
+
+}
+
+
+.dot {
+    height: 12px;
+    width: 12px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.current{
+    font-weight: bold;
+    color: #ff9814;
+}
+
+
+.slide {
+    clear:both;
+    width:100%;
+    height:0px;
+    overflow: hidden;
+    text-align: center;
+    transition: height .4s ease;
+    text-decoration : none; color : #2d2f31;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li{
+    text-decoration : none; color : #2d2f31;
+}
+
+
+.touch {position: absolute; opacity: 0; height: 0px;}
+
+.touch:checked + .slide {height: 300px;}
+
+.course-part{
+    background: hotpink;
+
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+
+
+
+
