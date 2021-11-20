@@ -10,7 +10,7 @@ export class Footer extends Component{
                         <div className="col-1">
                             <div className="row fw-bold">Courses</div>
                             <div className="row">Catalog</div>
-                            <div className="row">My courses</div>
+                            <div className="row">My CATS</div>
                         </div>
                         <div className="col-1">
                             <div className="row fw-bold">Profile</div>
