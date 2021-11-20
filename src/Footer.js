@@ -23,7 +23,7 @@ export class Footer extends Component{
                             <div className="row">My marks</div>
                         </div>
                         <div className="col-2">
-                            <div className="row fw-bold">Contacts</div>
+                            <div className="row fw-bold">Kiskas</div>
                             <div className="row">E-mail :2desk@gmail.com</div>
                         </div>
 
