@@ -9,6 +9,7 @@ import {CoursesList} from "./Courses";
 import {RightSubMenu} from "./SubMenuRight";
 import {Footer} from "./Footer";
 import {CourseDetail} from "./CourseDetail";
+import Register from "./Register";
 
 export class CoursesPage extends Component{
 
@@ -18,6 +19,20 @@ export class CoursesPage extends Component{
             <Header></Header>
             <CoursesMainContent></CoursesMainContent>
             <Footer></Footer>
+            </>
+        );
+    }
+}
+
+
+export class LoginPage extends Component{
+
+    render(){
+        return (
+            <>
+                <Header></Header>
+                <Register></Register>
+                <Footer></Footer>
             </>
         );
     }

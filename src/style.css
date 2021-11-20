@@ -199,9 +199,9 @@ li{
 
 .arrow {
     border: solid black;
-    border-width: 0 3px 3px 0;
+    border-width: 0 5px 5px 0;
     display: inline-block;
-    padding: 3px;
+    padding: 5px;
 }
 
 .down {
@@ -212,6 +212,57 @@ li{
 .up {
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
+}
+
+.chapter{
+    border-width: 2px;
+    border-style: solid;
+    border-color: pink;
+    border-radius: 10px;
+}
+
+.chapter-left-col{
+    width: 12px;
+    background: pink;
+    border-radius: 4px 0px 0px 4px;
+
+}
+
+.part-style{
+    font-weight: bold;
+    color: pink;
+
+}
+
+.subchapter{
+
+    background: whitesmoke;
+    font-size: 13pt;
+}
+
+.course-upper{
+    font-weight: bold;
+    color: #5c636a;
+}
+
+.chapter-detail{
+
+    border-top: #dee2e6 solid 3px;
+    border-left: #dee2e6 solid 3px;
+    border-right: #dee2e6 solid 3px;
+    border-radius: 8px 8px 0px 0px;
+
+}
+
+.subchapter-detail{
+    border-left: #dee2e6 solid 3px;
+    border-right: #dee2e6 solid 3px;
+    border-top: #dee2e6 solid 1px;
+}
+
+.last-border{
+    border-bottom: #dee2e6 solid 3px;
+    border-radius: 0px 0px 16px 16px;
 }
 
 

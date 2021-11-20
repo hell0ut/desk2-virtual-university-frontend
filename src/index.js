@@ -5,11 +5,11 @@ import "popper.js/dist/umd/popper";
 import "bootstrap/dist/js/bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css"
-import {CourseDetailPage, CoursesPage, Header} from "./App";
+import {CourseDetailPage, CoursesPage, Header, LoginPage} from "./App";
 
 
 var element = <button className={"btn btn-danger"}>hello</button>;
 
 
 
-ReactDOM.render(<CourseDetailPage></CourseDetailPage>,document.getElementById('root'))
+ReactDOM.render(<LoginPage></LoginPage>,document.getElementById('root'))
