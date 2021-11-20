@@ -24,14 +24,14 @@ export class SubMenu extends Component{
     renderTabs = (needToRender) => {
         if (needToRender) {
             return (
-                <div className="col">
-                    <div className="row vtabs"><span
-                        className="tabs tabs1 pt-1 pb-3 ps-0 ms-0 rounded-end"> My Courses</span></div>
-                    <div className="row vtabs"><span
-                        className="tabs tabs2 pt-1 pb-3 ps-0 ms-0 rounded-end"> To do List</span></div>
+                <div className="col-2 p-0 border-end border-2">
+                    <div className="vtabs1 d-flex justify-content-end"><span
+                        className="tabs tabs1 d-flex justify-content-center align-items-center  "> My Courses</span></div>
+                    <div className="vtabs d-flex justify-content-end"><span
+                        className="tabs tabs2 d-flex justify-content-center align-items-center "> To do List</span></div>
 
-                    <div className="row vtabs"><span
-                        className="tabs tabs3 pt-1 pb-3 ps-0 ms-0 rounded-end"> My Schedule</span></div>
+                    <div className="vtabs d-flex justify-content-end"><span
+                        className="tabs tabs3 d-flex justify-content-center align-items-center "> My Schedule</span></div>
                 </div>
             );
 
@@ -40,8 +40,8 @@ export class SubMenu extends Component{
     }
     render() {
         return (
-            <div className="col-1">
-                <div className="row">
+            <div className="col-2">
+                <div className="row h-100">
                     <div className="col-8">
                         {this.state.icons.map((but,index) =>{
                             return <SideMenuButton props={but} index = {index} func={this.updatePhoto}></SideMenuButton>;
@@ -67,8 +67,8 @@ export class SideMenuButton extends Component{
         const {icon,name} = this.props.props;
         const index = this.props.index;
         return (
-            <div className="row justify-content-center side_menu_el" key={name}>
-                <div className="col-12"><a href=""><img src={icon} alt={name} onClick={()=>{this.props.func(index)}}
+            <div className="row side_menu_el" key={name}>
+                <div className="col-12 d-flex justify-content-center" ><a href=""><img src={icon} alt={name} onClick={()=>{this.props.func(index)}}
                                                         className="img-fluid float-end"/></a></div>
             </div>
         );

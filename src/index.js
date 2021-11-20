@@ -12,4 +12,4 @@ var element = <button className={"btn btn-danger"}>hello</button>;
 
 
 
-ReactDOM.render(<CourseDetailPage></CourseDetailPage>,document.getElementById('root'))
+ReactDOM.render(<CoursesPage />,document.getElementById('root'))

@@ -1,3 +1,5 @@
+
+
 header{
     margin-left: 1%;
     margin-right: 1%;
@@ -10,8 +12,9 @@ header{
     font-style: italic;
     text-decoration: underline;
     font-size: 20px;
+    margin-left: 0.25em;
 }
-
+.col-0point5 {width: 5%;}
 .learn{
     color:#ff9933;
 
@@ -36,7 +39,7 @@ header{
 }
 
 .side_menu_el{
-    margin-top: 40px;
+    margin-top: 65px;
 
 }
 
@@ -47,9 +50,10 @@ header{
 }
 
 .card_size{
-    height:250px;
-
+    height:100%;
+    
 }
+
 
 
 .info{
@@ -59,7 +63,7 @@ header{
 
 .digit{
     font-weight: bold;
-    font-size: 25px;
+    font-size: 35px;
 }
 
 
@@ -67,7 +71,12 @@ header{
 .tabs{
     writing-mode: vertical-lr;
     transform: rotate(180deg);
-    font-size: 20px;
+    font-size: 17px ;
+    font-weight: bold;
+    color: #333333;
+    height: 13em;
+    width: 35px;
+    border-radius: 0 10px 10px 0;
 }
 
 .tabs1{
@@ -91,6 +100,9 @@ header{
     justify-content: center;
     color: white;
     font-weight: bold;
+    height:40px;
+    border-radius: 10px 10px 0 0;
+
 
 }
 
@@ -100,8 +112,13 @@ header{
     justify-content: center;
     color: white;
     font-weight: bold;
+    height:40px;
+    border-radius: 10px 10px 0 0;
 }
+.op70{
+    opacity: 70%;
 
+}
 .schedule{
     display: flex;
     background: #cc6600;
@@ -109,30 +126,62 @@ header{
     color: white;
     font-weight: bold;
 
-}
+    height:40px;
+    border-radius: 10px 10px 0 0;
 
+}
+.h30{
+    height: 40px;
+}
 
 .lists{
     justify-content: center;
     display: flex;
     background: #f3f3f3;
+    width: 100%;
+    font-size: small;
+    border-radius: 10px;
 
 }
 
+.text_digit{
+    font-size:11pt;
+     line-height:1.3;
+}
 
 .vtabs{
-    margin-top: 90px;
+    margin-top: 10px;
 
 }
+.border_arrows_search{
+    border-radius: 5px;
+    border-color: #a1a1a1;
 
+}
+.dropdown_button{
+    border-radius: 10px;
+    color: #669966;
+    border-color: #669966;
+    font-size: 9pt;
+}
+.vtabs1{
+    margin-top: 75px;
 
+}
 .my-courses{
-    font-size: 2vw;
+    font-size: 20pt;
     color: #13023f;
+    font-weight: bold;
 
 }
-
-
+.description_font{
+    color: #666666;
+    font-size: 9pt;
+}
+.radius_width_r_tabs{
+    border-radius: 10px 0 0 10px;
+    width: 25px;
+}
 .arrows{
     margin-bottom: auto;
     margin-top: auto;
@@ -149,6 +198,7 @@ header{
 
 .titlecard{
     font-weight: bold;
+    font-size: 10pt;
 
 
 }

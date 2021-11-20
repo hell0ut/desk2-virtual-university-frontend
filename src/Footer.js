@@ -4,7 +4,7 @@ export class Footer extends Component{
 
     render() {
         return(
-            <footer className="border-top border-2 mt-5">
+            <footer className="border-top border-2 pt-4 pb-5">
                 <div className="container">
                     <div className="row justify-content-evenly">
                         <div className="col-1">
