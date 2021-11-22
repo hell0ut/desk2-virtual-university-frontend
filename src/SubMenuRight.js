@@ -13,12 +13,14 @@ export class RightSubMenu extends Component{
         {id:1,name:'Numerical Methods3',time:'8:30 - 10:53'},
         {id:2,name:'Linear Algebra',time:'8:30 - 10:53'},
     ]};
+    Col12or4need= (num) => {
 
+    }
     render() {
         return (
-            <div className="col-4 px-4 position-relative">
+            <div className="col px-4 position-relative">
 
-                <div className="pe-0 px-2 border-start border-2 h-100">
+                <div className="pe-0 px-2 pe-4 border-start border-2 h-100">
                 <div className="row d-flex justify-content-center align-self-center  pt-5 mb-5  ms-1 me-1 ">
                     <div className="col-6 float-end  justify-content-center p-0 "><span className="float-end"
                                                                                   style={{  fontSize:'12pt',color:"#660099"}}>Current Lesson?</span>

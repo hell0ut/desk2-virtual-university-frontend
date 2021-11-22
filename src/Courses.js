@@ -125,16 +125,7 @@ export class CoursesList extends Component{
         );
     }
 
-    componentDidMount() {
-        var headers = new Headers();
-        var username = 'couchdb';
-        var password = 'couchdb';
-        headers.append('Authorization', 'Basic ' + btoa(username + ':' + password));
-        let promise = fetch("http://localhost:5984/courses/_design/courses/_view/new-view", {headers: headers});
-        promise.then((response) =>{
-            console.log(response);
-        })
-    }
+
 }
 
 

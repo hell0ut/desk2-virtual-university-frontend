@@ -24,7 +24,8 @@ export class SubMenu extends Component{
     renderTabs = (needToRender) => {
         if (needToRender) {
             return (
-                <div className="col-2 p-0 border-end border-2">
+                <div className="col-1 p-0">
+                    <div className="pt-5 me-4 h-100 border-end border-2">
                     <div className="vtabs1 d-flex justify-content-end"><span
                         className="tabs tabs1 d-flex justify-content-center align-items-center  "> My Courses</span></div>
                     <div className="vtabs d-flex justify-content-end"><span
@@ -33,28 +34,31 @@ export class SubMenu extends Component{
                     <div className="vtabs d-flex justify-content-end"><span
                         className="tabs tabs3 d-flex justify-content-center align-items-center "> My Schedule</span></div>
                 </div>
+                </div>
             );
 
-        } else return '';
+        } else return "";
+        
 
     }
     render() {
         return (
-            <div className="col-2">
-                <div className="row h-100">
-                    <div className="col-8">
+            <>
+            <div className="col-1">
+                    <div className="ps-1 col-12">
                         {this.state.icons.map((but,index) =>{
                             return <SideMenuButton props={but} index = {index} func={this.updatePhoto}></SideMenuButton>;
                         })}
                     </div>
+                    
 
-
+                    </div>
 
                     {this.renderTabs(this.props.needToRender)}
 
 
-                </div>
-            </div>
+                </>
+            
         );
     }
 }
