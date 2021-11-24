@@ -1,4 +1,7 @@
-
+a{
+    text-decoration: none;
+    color: inherit;
+}
 
 header{
     margin-left: 1%;
@@ -119,6 +122,43 @@ header{
     opacity: 70%;
 
 }
+.puk{
+    background-color: #cc6600;  
+}
+
+
+
+.sidenav {
+
+
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 ширина - изменить это с помощью JavaScript */
+    position: fixed; /* Оставайтесь на месте */
+    z-index: 1; /* Оставайтесь сверху */
+    top: 0; /* Оставайтесь наверху */
+    right: 0;
+    background-color: white; /* Фон черный*/
+    overflow-x: hidden; /* Отключить горизонтальную прокрутку */
+    padding-top: 60px; /* Поместите контент в 60px сверху */
+    transition: 0.5s; /* 0.5 второй эффект перехода слайда в боковой навигации */
+  }
+
+  
+  /* Положение и стиль кнопки закрытия (верхний правый угол) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+
+
+
+
+
+
 .schedule{
     display: flex;
     background: #cc6600;
@@ -164,10 +204,7 @@ header{
     border-color: #669966;
     font-size: 9pt;
 }
-.vtabs1{
-    margin-top: 75px;
 
-}
 .my-courses{
     font-size: 20pt;
     color: #13023f;
@@ -265,34 +302,38 @@ li{
 }
 
 .chapter{
-    border-width: 2px;
+    
+    border-width: 1px;
     border-style: solid;
-    border-color: pink;
-    border-radius: 10px;
+    border-color: #ff99cc;
+
 }
 
 .chapter-left-col{
-    width: 12px;
-    background: pink;
-    border-radius: 4px 0px 0px 4px;
+    width: 6px;
+    background: #ff99cc;
+    
 
 }
 
 .part-style{
+    width: 100%;
     font-weight: bold;
-    color: pink;
+    font-size: 10pt;
+    color: #ff99cc;
 
 }
 
 .subchapter{
-
     background: whitesmoke;
-    font-size: 13pt;
+    font-size: 10pt;
 }
 
 .course-upper{
-    font-weight: bold;
+    font-size: 11pt;
+    
     color: #5c636a;
+    font-family: Arial;
 }
 
 .chapter-detail{
@@ -315,6 +356,29 @@ li{
     border-radius: 0px 0px 16px 16px;
 }
 
+
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
 
 
 
