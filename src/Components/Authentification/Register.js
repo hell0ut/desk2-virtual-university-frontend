@@ -1,5 +1,7 @@
 import React,{Component} from "react";
-import './css/login.css';
+import '../../css/login.css';
+import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 export default class Register extends Component
 {
@@ -14,18 +16,22 @@ export default class Register extends Component
             profile_type:'student',
             student_card_id:'12345678',
             position:'daun',
+            redirect:false
         }
 
     }
 
 
     render() {
+        const { redirect } = this.state;
+        if (redirect) return <Navigate to={{pathname:'/confirm-email',state:{email:this.state.email}}}/>;
         return (
-            <div className="container">
+            <div className="col me-5">
+                {this.state.message}
                 <form>
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Email address</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <label >Email address</label>
+                        <input type="email" className="form-control" aria-describedby="emailHelp"
                                placeholder="Enter email" value={this.state.email} onChange={(event)=>{
                             this.setState({email:event.target.value})}} />
                             <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone
@@ -34,8 +40,8 @@ export default class Register extends Component
                     <div className="row">
                         <div className="col-4">
                             <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">First name</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                <label>First name</label>
+                                <input className="form-control" aria-describedby="emailHelp"
                                        placeholder="Enter email" value={this.state.first_name} onChange={(event)=>{
                                     this.setState({first_name:event.target.value})}} />
 
@@ -44,8 +50,8 @@ export default class Register extends Component
 
                         <div className="col-4">
                             <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Middle Name</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                <label >Middle Name</label>
+                                <input className="form-control" aria-describedby="emailHelp"
                                        placeholder="Enter email" value={this.state.middle_name} onChange={(event)=>{
                                     this.setState({middle_name:event.target.value})}} />
 
@@ -56,8 +62,8 @@ export default class Register extends Component
 
                         <div className="col-4">
                             <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Last name</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                <label >Last name</label>
+                                <input className="form-control" aria-describedby="emailHelp"
                                        placeholder="Enter email" value={this.state.last_name} onChange={(event)=>{
                                     this.setState({last_name:event.target.value})}} />
 
@@ -72,8 +78,8 @@ export default class Register extends Component
 
 
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Profile type</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <label>Profile type</label>
+                        <input className="form-control" aria-describedby="emailHelp"
                                placeholder="Enter email" value={this.state.profile_type} onChange={(event)=>{
                             this.setState({profile_type:event.target.value})}} />
 
@@ -81,8 +87,8 @@ export default class Register extends Component
 
 
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Student Card ID</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <label >Student Card ID</label>
+                        <input className="form-control" aria-describedby="emailHelp"
                                placeholder="Enter email" value={this.state.student_card_id} onChange={(event)=>{
                             this.setState({student_card_id:event.target.value})}} />
 
@@ -90,43 +96,48 @@ export default class Register extends Component
 
 
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Position</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <label >Position</label>
+                        <input className="form-control"  aria-describedby="emailHelp"
                                placeholder="Enter email" value={this.state.position} onChange={(event)=>{
                             this.setState({position:event.target.value})}} />
 
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Password</label>
-                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"
+                        <label >Password</label>
+                        <input type="password" className="form-control" placeholder="Password"
                                value={this.state.password} onChange={(event)=>{
                                    this.setState({password:event.target.value})
                         }}/>
                     </div>
                     <div className="form-group form-check">
-                        <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                            <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+                        <input type="checkbox" className="form-check-input"/>
+                            <label className="form-check-label">Check me out</label>
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={this.onLoginClick}>Submit</button>
+                    <button type="button" className="btn btn-primary" onClick={this.onLoginClick}>Submit</button>
                 </form>
             </div>
         );
     }
 
-    onLoginClick = async () =>{
-        const response = await fetch('http://127.0.0.1:8000/auth/user/',{method:'POST',
-            mode:"cors",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin':'*'
-                },
-                body: JSON.stringify(this.state)
-            }
-            );
-        const content = await response.json();
-        console.log(response);
+    onLoginClick =  () =>{
+        const {email,password,first_name,last_name,middle_name,profile_type,student_card_id,position} = this.state;
+
+        axios.post('http://localhost:8000/auth/user/',{email:email,password:password,first_name:first_name,
+        last_name:last_name,middle_name:middle_name,profile_type:profile_type,student_card_id:student_card_id,position:position}).
+        then((res) =>{
+            //this.setState({message:<h1 style={{color:'green'}}>{JSON.stringify(res.data)}</h1>});
+            axios.post('http://127.0.0.1:8000/auth/token/send-token/email-confirm/',{email:this.state.email}).then(
+                res2 =>{
+                    this.setState({redirect:true});
+                }
+            )
+        }).
+        catch(error =>{
+            this.setState({message:<h1 style={{color:'red'}}>{JSON.stringify(error.response.data)}</h1>});
+        })
+
+
 
 
     }

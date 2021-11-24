@@ -1,11 +1,8 @@
-import {Component} from "react";
 
+export default function Schedule (){
 
-export class Schedule extends Component{
-
-    render() {
         return (
-            <div>
+            <div className="col">
                 <div className="row justify-content-around hat">
                     <div className="col-3"><span className="my-courses">My Schedule</span></div>
                     <div className="col-2"></div>
@@ -15,9 +12,9 @@ export class Schedule extends Component{
                         <div className="row justify-content-end">
                             <div className="box border border-2 rounded justify-content-center me-2"><a href=""
                                                                                                         className=""><img
-                                src="img/arrow_left.png" alt="" className="img-fluid ms-1 mt-2"/></a></div>
+                                src="../../img/arrow_left.png" alt="" className="img-fluid ms-1 mt-2"/></a></div>
                             <div className="box border border-2 rounded justify-content-center me-3"><a href=""><img
-                                src="img/arrow_right.png" alt="" className="img-fluid ms-1 mt-2"/></a></div>
+                                src="../../img/arrow_right.png" alt="" className="img-fluid ms-1 mt-2"/></a></div>
 
                         </div>
                     </div>
@@ -33,7 +30,7 @@ export class Schedule extends Component{
                             <div className="col-3">8:30-10:05</div>
                             <div className="col-7  ms-3 me-0"><span className="dot ms-1 me-1"></span>Linear Algebra
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -43,7 +40,7 @@ export class Schedule extends Component{
                                                                    style={{'background-color':'purple'}}></span>Linear
                                 Algebra
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -53,7 +50,7 @@ export class Schedule extends Component{
                                                                     style={{'background-color':'white'}}></span>Linear
                                 Algebra
                             </div>
-                            <div className="col ps-0 pe-1 "><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1 "><img src="../../img/link.png" alt=""
                                                                  className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -67,7 +64,7 @@ export class Schedule extends Component{
                             <div className="col-3">8:30-10:05</div>
                             <div className="col-7  ms-3 me-0"><span className="dot ms-1 me-1"></span>Linear Algebra
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -77,7 +74,7 @@ export class Schedule extends Component{
                                                                    style={{'background-color':'purple'}}></span>Linear
                                 Algebra
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -86,7 +83,7 @@ export class Schedule extends Component{
                             <div className="col-7 ms-3 me-0"><span className="dot ms-1 me-1"
                                                                    style={{'background-color':'white'}}></span>Linear Algebra
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -99,7 +96,7 @@ export class Schedule extends Component{
                         <div className="row border-bottom border-3 mt-1 mb-1">
                             <div className="col-3">8:30-10:05</div>
                             <div className="col-7  ms-3 me-0"><span className="dot ms-1 me-1"></span>English</div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -109,7 +106,7 @@ export class Schedule extends Component{
                                                                    style={{'background-color':'purple'}}></span>Linear
                                 Algebra
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -118,7 +115,7 @@ export class Schedule extends Component{
                             <div className="col-7 ms-3 me-0"><span className="dot ms-1 me-1"
                                                                    style={{'background-color':'white'}}></span>Linear Algebra
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -127,7 +124,7 @@ export class Schedule extends Component{
                             <div className="col-7 ms-3 me-0"><span className="dot ms-1 me-1"
                                                                    style={{'background-color':'white'}}></span>Физра)
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -142,7 +139,7 @@ export class Schedule extends Component{
                         <div className="row border-bottom border-3 mt-1 mb-1">
                             <div className="col-3">8:30-10:05</div>
                             <div className="col-7  ms-3 me-0"><span className="dot ms-1 me-1"></span>English</div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -152,7 +149,7 @@ export class Schedule extends Component{
                                                                    style={{'background-color':'purple'}}></span>Linear
                                 Algebra
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -161,7 +158,7 @@ export class Schedule extends Component{
                             <div className="col-7 ms-3 me-0"><span className="dot ms-1 me-1"
                                                                    style={{'background-color':'white'}}></span>Linear Algebra
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -170,7 +167,7 @@ export class Schedule extends Component{
                             <div className="col-7 ms-3 me-0"><span className="dot ms-1 me-1"
                                                                    style={{'background-color':'white'}}></span>Физра)
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -185,7 +182,7 @@ export class Schedule extends Component{
                         <div className="row border-bottom border-3 mt-1 mb-1">
                             <div className="col-3">8:30-10:05</div>
                             <div className="col-7  ms-3 me-0"><span className="dot ms-1 me-1"></span>English</div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -195,7 +192,7 @@ export class Schedule extends Component{
                                                                    style={{'background-color':'purple'}}></span>Linear
                                 Algebra
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -204,7 +201,7 @@ export class Schedule extends Component{
                             <div className="col-7 ms-3 me-0"><span className="dot ms-1 me-1"
                                                                    style={{'background-color':'white'}}></span>Linear Algebra
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -213,7 +210,7 @@ export class Schedule extends Component{
                             <div className="col-7 ms-3 me-0"><span className="dot ms-1 me-1"
                                                                    style={{'background-color':'white'}}></span>Физра)
                             </div>
-                            <div className="col ps-0 pe-1"><img src="img/link.png" alt=""
+                            <div className="col ps-0 pe-1"><img src="../../img/link.png" alt=""
                                                                 className="img-fluid float-end border rounded border-2"/>
                             </div>
                         </div>
@@ -223,5 +220,5 @@ export class Schedule extends Component{
                 </div>
             </div>
     );
-    }
+
 }
