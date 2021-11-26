@@ -9,7 +9,7 @@ export default function Header(){
     const [user,setName] = useState({firstname:'Daria',lastname:'Ugnivenko'});
 
     return (
-        <header className="border-bottom border-2">
+        <header className="border-bottom m-0 border-2">
 
             <div className="row mt-auto">
                 <div className="col-2 d-flex justify-content-center align-self-center">

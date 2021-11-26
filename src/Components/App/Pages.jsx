@@ -83,7 +83,7 @@ export class CoursesMainContent extends Component{
                 <div className="row">
                     <SubMenu needToRender={true}></SubMenu>
                     <CoursesList></CoursesList>
-                    <RightSubMenu></RightSubMenu>
+                    <RightSubMenu hh = {"auto"}></RightSubMenu>
                 </div>
             </div>
         );

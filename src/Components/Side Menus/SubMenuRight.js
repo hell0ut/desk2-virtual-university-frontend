@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 
-export default function RightSubMenu(){
+export default function RightSubMenu(props){
 
-
+    const a = props.hh;
     const [info,setInfo] = useState(    {
         deadline : {
             deadline_a: [
@@ -24,15 +24,15 @@ export default function RightSubMenu(){
         }
     });
 
-    const Col12or4need= (num) => {
 
-    }
 
     return (
-        <div className="col px-4 position-relative">
-
+        
+        <div className="col px-4 position-relative" style={{height: a}}>
+            
             <div className="pe-0 px-2 pe-4 border-start border-2 h-100">
             <div className="row d-flex justify-content-center align-self-center  pt-5 mb-5  ms-1 me-1 ">
+            
                 <div className="col-6 float-end  justify-content-center p-0 "><span className="float-end"
                                                                               style={{  fontSize:'12pt',color:"#660099"}}>Current Lesson?</span>
                 </div>
@@ -76,7 +76,8 @@ export default function RightSubMenu(){
                 })}
 
             </div>
-        </div>
+            </div>
+        
     );
 
 
