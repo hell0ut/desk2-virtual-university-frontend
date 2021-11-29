@@ -1,8 +1,5 @@
 import React, {Component, useState} from "react";
-import RightSubMenu from "../Side Menus/SubMenuRight";
 import RightActive from "../Side Menus/SideMenuRightActive";
-import button_right from "../../img/button_icon.png";
-import paper from "../../img/paperclip.png";
 import done from "../../img/done.png";
 export class RightVerticalTabs extends Component{
 
@@ -95,26 +92,9 @@ export default function CourseDetail (){
                         })}
 </div>
 </div>
-                
-
             </div>
             <CourseDetailMain props = {state}></CourseDetailMain>
-            <div id = "puk" className="col-1 p-0 d-flex justify-content-end">
-            
-                <div  className="col display_mode">
-                <div className="row d-flex justify-content-end m-0 mt-3" style={{height:"30px"}}>
-                        <div className=" radius_width_r_tabs deadlines_min" > </div>
-                 </div>
-                 <div className="row d-flex justify-content-end m-0" style={{height:"30px"}}>
-                        <div className="radius_width_r_tabs exams_min"  > </div>
-                </div>
-                <div className="row d-flex justify-content-end m-0" style={{height:"30px"}}>
-                        <div className="radius_width_r_tabs schedule_min"> </div>
-                        </div>
-                </div>
-                <RightActive hh = {"100%"}></RightActive>
- 
-            </div>
+            <RightActive hh = {"100%"}></RightActive>
 
             </>
 

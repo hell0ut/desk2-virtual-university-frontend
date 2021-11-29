@@ -98,7 +98,7 @@ export class HomePage extends Component{
         return (
             <div style={{'margin-left': '1%', 'margin-right': '1%'}}>
                 <div className="row">
-                    <SubMenu needToRender={false}></SubMenu>
+                    
                     <Home></Home>
                 </div>
             </div>
