@@ -448,6 +448,29 @@ li{
     transform: scale(0.8) rotate(45deg);
     color: #fff;
 }
+.banner-font{
+    font-size: 15pt;
+}
+.banner-button{
+    background-color: black;
+    height: 35px;
+    width: 70%;
+    color:white;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 17pt;
+}
+.search_row{
+    height: 30px;
+    border-radius: 10px;
+    border:  1px solid  grey;
+    color:grey;
+    font-size: 10pt;
+}
+.cont{
 
+        max-width: 100%;
+        overflow-x: hidden;
 
+}
 

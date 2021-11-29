@@ -1,3 +1,4 @@
+import React, {Component} from "react";
 import RightSubMenu from "../Side Menus/SubMenuRight";
 import button_right from "../../img/button_icon.png";
 
@@ -19,8 +20,21 @@ export default function SideMenuRightActive() {
         }
     }
     return (
-    <>
-    <div  className="col display_mode border-start border-2 d-flex justify-content-center "> <button className="mt-3 border button_right_hover button_open_right_menu_style" onClick={handleClick}><img src={button_right}></img></button> </div>
+    
+                <div id = "puk" className="col-1 p-0 d-flex justify-content-end">
+            
+            <div  className="col display_mode">
+            <div className="row d-flex justify-content-end m-0 mt-3" style={{height:"30px"}}>
+                    <div className=" radius_width_r_tabs deadlines_min" > </div>
+             </div>
+             <div className="row d-flex justify-content-end m-0" style={{height:"30px"}}>
+                    <div className="radius_width_r_tabs exams_min"  > </div>
+            </div>
+            <div className="row d-flex justify-content-end m-0" style={{height:"30px"}}>
+                    <div className="radius_width_r_tabs schedule_min"> </div>
+                    </div>
+            </div>
+            <div  className="col display_mode border-start border-2 d-flex justify-content-center "> <button className="mt-3 border button_right_hover button_open_right_menu_style" onClick={handleClick}><img src={button_right}></img></button> </div>
                 
     <div id="mySidenav" className="p-0 col-4 sidenav position-relative">
 
@@ -29,6 +43,9 @@ export default function SideMenuRightActive() {
         <RightSubMenu hh = {"100%"}></RightSubMenu>
         
 </div>
-</>
+
+        </div>
+ 
+
     )
 }
