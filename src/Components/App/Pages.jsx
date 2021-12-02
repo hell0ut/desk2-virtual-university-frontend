@@ -10,8 +10,22 @@ import RightSubMenu from "../Side Menus/SubMenuRight";
 import CourseDetail from "../Courses UI/CourseDetail";
 import Register from "../Authentification/Register";
 import Schedule from "../Courses UI/Schedule";
-import {Login} from "../Authentification/Login";
+import Login from "../Authentification/Login";
 import {ConfirmEmail} from "../Authentification/ConfirmEmail";
+import CoursesPageTestMain from "../Courses UI/CoursesPageTestMain";
+
+
+
+export function CoursesPageTest (){
+    return (
+        <div style={{'margin-left': '1%', 'margin-right': '1%'}}>
+            <div className="row">
+                <SubMenu needToRender={false}></SubMenu>
+                <CoursesPageTestMain></CoursesPageTestMain>
+            </div>
+        </div>
+    );
+}
 
 
 export class RegisterPage extends Component{

@@ -13,9 +13,11 @@ import {
     CourseDetailMain,
     SchedulePage, ConfirmEmailPage
 } from "./Components/App/Pages";
-import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
+import NotFound from "./Components/Utils/NotFound";
+import CoursesPageTestMain from "./Components/Courses UI/CoursesPageTestMain";
 
 
 
@@ -38,7 +40,8 @@ class App extends Component{
                 <BrowserRouter>
                     <Header></Header>
                     <Routes>
-
+                        <Route path='*' element={<NotFound />} />
+                        <Route path="/courses_test" exact element={<CoursesPageTestMain></CoursesPageTestMain>}/>
                         <Route path="/home" exact element={<HomePage></HomePage>}/>
                         <Route path="/courses" exact element={<CoursesMainContent></CoursesMainContent>}/>
                         <Route path="/course" exact  element={<CourseDetailMain></CourseDetailMain>}/>
@@ -47,6 +50,7 @@ class App extends Component{
                         <Route path="/schedule" exact element={<SchedulePage></SchedulePage>}/>
                         <Route path="/login" exact element={<LoginPage></LoginPage>}/>
                         <Route path="/confirm-email" exact element={<ConfirmEmailPage email={this.props.email}/>}/>
+                        <Route element={<NotFound></NotFound>}/>
 
                     </Routes>
                     <Footer></Footer>
