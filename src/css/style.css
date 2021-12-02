@@ -450,22 +450,105 @@ li{
 }
 .banner-font{
     font-size: 15pt;
+    font-family:sans-serif;
+    font-style: italic;
 }
 .banner-button{
-    background-color: black;
-    height: 35px;
-    width: 70%;
-    color:white;
-    border-radius: 10px;
+    background: white;
+    height: 40px;
+    border:1px solid black;
+    width: 150px;
+    color:black;
+    border-radius: 15px;
     font-weight: bold;
     font-size: 17pt;
+    font-style: normal;
 }
+.banner-text{
+    font-size: 18pt;
+    color: #cb9af5;
+    font-weight: bold;
+}
+
 .search_row{
-    height: 30px;
+    height: 40px;
     border-radius: 10px;
     border:  1px solid  grey;
     color:grey;
+    
+}
+.search_w_h{
+    height: 40px;
+    width: 40px;
+}
+.main-header{
+    font-size: 25pt;
+    color: darkblue;
+    font-weight: bold;
+}
+
+div > .blocks > div > .b{
+    height: 110pt;
+    width: 118pt;
+    margin: 0px 0px;
+    border-radius: 10px ;
+    position: relative;
+
+}
+@media only screen and (min-width: 1800px) {
+    div > .blocks > div > .b{
+        height: 140pt;
+        width: 155pt;
+    }
+    .subject_font > .col-7{
+        font-size: 20pt;
+    }
+    }
+@media only screen and (max-width: 1426px) {
+        div > .blocks > div > .b{
+            height: 120pt;
+            width: 100pt;
+        }
+        .subject_font > .col-7{
+            font-size: 15pt;
+        }
+        }
+    
+
+.subject_font{
+    color: white;
+    font-size: 13pt;
+    font-weight: bold;
+    height:50px;
+    text-align: left;
+    line-height: 1.1;
+}
+.see_more{
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 45%;
+    text-decoration: underline;
+}
+.cards-font{
+    color: white;
     font-size: 10pt;
+    font-weight: bold;
+}
+.b1{
+    background-color: black;
+}
+.b2{
+    background-color: green;
+}
+.b3{
+    background-color: purple;
+}
+.b4{
+    background-color: pink;
+}
+.b5{
+    background-color: orange;
 }
 .cont{
 
@@ -473,4 +556,47 @@ li{
         overflow-x: hidden;
 
 }
+.circle{
+    background-color: white;
+    width: 30px;
+    height:30px;
+    border-radius: 100%;
+    border-width:2px;
+    padding: 4px;
+}
+.circle_c{
+
+    width: 20px;
+    height:20px;
+    border-radius: 100%;
+
+
+}
+.see_more > a:hover{
+    color:white;
+    font-weight: bold;
+}
+.pop-courses-header{
+    font-size: 11pt;
+    color: #13023f;
+    font-weight: bold;
+}
+header{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.hhh{
+    background: linear-gradient(90deg, rgba(219,249,212,1) 0%, rgba(255,252,211,1) 15%, rgba(252,230,250,1) 39%, rgba(234,238,251,1) 58%, rgba(255,244,220,1) 78%, rgba(255,255,255,1) 100%);
+}
+.hh{
+    background: white;
+}
+.list-font{
+    font-size: 13pt;
+}
+.pop-hov:hover{
+border:1px solid black;
+border-radius: 5%;
+}
+
 
