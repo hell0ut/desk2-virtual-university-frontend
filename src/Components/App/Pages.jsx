@@ -28,25 +28,22 @@ export function CoursesPageTest (){
 }
 
 
-export class RegisterPage extends Component{
+export function RegisterPage (){
 
-    render(){
         return (
             <div style={{'margin-left': '1%', 'margin-right': '1%'}}>
             <div className="row">
                 <SubMenu needToRender={false}></SubMenu>
-                <Register regSuccess={this.props.regSuccess}></Register>
+                <Register></Register>
             </div>
             </div>
 
         );
-    }
+    
 }
 
 
-export class ConfirmEmailPage extends Component{
-
-    render(){
+export function ConfirmEmailPage (){
         return (
             <div style={{'margin-left': '1%', 'margin-right': '1%'}}>
             <div className="row">
@@ -55,28 +52,26 @@ export class ConfirmEmailPage extends Component{
             </div>
             </div>
         );
-    }
 }
 
 
-export class LoginPage extends Component{
+export function LoginPage (){
 
-    render(){
+    
         return (
             <div style={{'margin-left': '1%', 'margin-right': '1%'}}>
             <div className="row">
-                <SubMenu needToRender={false}></SubMenu>
                 <Login></Login>
             </div>
             </div>
 
         );
-    }
+    
 }
 
 
-export class CourseDetailMain extends Component{
-    render() {
+export function CourseDetailMain (){
+    
         return (
             <div style={{'margin-left': '1%', 'margin-right': '1%'}}>
                 <div className="row">
@@ -85,13 +80,13 @@ export class CourseDetailMain extends Component{
                 </div>
             </div>
         );
-    }
+    
 }
 
 
-export class CoursesMainContent extends Component{
+export function CoursesMainContent (){
 
-    render() {
+    
         return (
             <div style={{'margin-left': '1%', 'margin-right': '1%'}}>
                 <div className="row">
@@ -101,14 +96,14 @@ export class CoursesMainContent extends Component{
                 </div>
             </div>
         );
-    }
+    
 }
 
 
 
-export class HomePage extends Component{
+export function HomePage (){
 
-    render() {
+    
         return (
             <div style={{'margin-left': '1%', 'margin-right': '1%'}}>
                 <div className="row">
@@ -117,11 +112,11 @@ export class HomePage extends Component{
                 </div>
             </div>
         );
-    }
+    
 }
 
-export class SchedulePage extends Component{
-    render() {
+export function SchedulePage (){
+    
         return (
             <div style={{'margin-left': '1%', 'margin-right': '1%'}}>
                 <div className="row">
@@ -130,7 +125,7 @@ export class SchedulePage extends Component{
                 </div>
             </div>
         );
-    }
+    
 
 }
 

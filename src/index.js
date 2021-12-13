@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import "jquery";
 import "popper.js/dist/umd/popper";
@@ -13,51 +13,62 @@ import {
     CourseDetailMain,
     SchedulePage, ConfirmEmailPage
 } from "./Components/App/Pages";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import NotFound from "./Components/Utils/NotFound";
 import CoursesPageTestMain from "./Components/Courses UI/CoursesPageTestMain";
+import $api, {base_url} from "./Components/App/API";
+
+export const regContext = React.createContext();
 
 
+export default function App (){
+    const [reg, setReg] =  useState('true');
+    useEffect(()=>{
+        console.log(reg)
+        console.log("changing reg")
+        setReg(localStorage.getItem('islog'));
+    },[]);
 
-class App extends Component{
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            registered:false
+    useEffect(()=>{
+        localStorage.setItem('islog',reg);
+        if(reg==="false"){
+            console.log("hereeeeeeee")
+            return <Navigate to="/login"/> 
         }
-    }
-
-    userLogged = () => {
-        this.setState({registered:true});
-    }
+    },[reg]);
 
 
-    render() {
+    console.log("hi from index");
         return (
+            
                 <BrowserRouter>
+                    <regContext.Provider value={[reg,setReg]}>
                     <Header></Header>
+                    
+                    
                     <Routes>
-                        <Route path='*' element={<NotFound />} />
+                        <Route path='*' element={<HomePage></HomePage>} />
                         <Route path="/courses_test" exact element={<CoursesPageTestMain></CoursesPageTestMain>}/>
                         <Route path="/home" exact element={<HomePage></HomePage>}/>
                         <Route path="/courses" exact element={<CoursesMainContent></CoursesMainContent>}/>
                         <Route path="/course" exact  element={<CourseDetailMain></CourseDetailMain>}/>
-                        <Route path="/register" exact element={<RegisterPage regSuccess={this.userLogged}></RegisterPage>}>
+                        <Route path="/register" exact element={<RegisterPage></RegisterPage>}>
                         </Route>
                         <Route path="/schedule" exact element={<SchedulePage></SchedulePage>}/>
                         <Route path="/login" exact element={<LoginPage></LoginPage>}/>
-                        <Route path="/confirm-email" exact element={<ConfirmEmailPage email={this.props.email}/>}/>
+                        
                         <Route element={<NotFound></NotFound>}/>
 
                     </Routes>
                     <Footer></Footer>
+                    </regContext.Provider>
                 </BrowserRouter>
+               
 
         );
-    }
+    
 }
 
 

@@ -12,7 +12,6 @@ import {Link} from "react-router-dom";
 
 export default function CoursesList (){
 
-
     const[state,setState] = useState(     {courses:[
             {id:1,subject:'Linear Algebra',teacher:'L. Baranovska',image:course_image1},
             {id:2,subject:'Linear Algebra',teacher:'L. Baranovska',image:course_image2},

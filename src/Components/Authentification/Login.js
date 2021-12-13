@@ -1,7 +1,8 @@
-import {useState} from "react";
+import {useState, useContext} from "react";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 import $api, {base_url} from "../App/API";
+import {regContext} from "../../index.js";
 
 export default function Login() {
 
@@ -13,15 +14,19 @@ export default function Login() {
     const [message,setMessage] = useState('')
     const navigate = useNavigate()
 
+    const [reg, setReg] = useContext(regContext);
 
 
 
     const loginUser = () => {
         const user = {email:email,password:password}
         if (twoFA) user['2FA_code'] = twoFA;
-        axios.post(base_url+'auth/token/obtain/',user).then(res=>{
+        axios.post(base_url+'auth/token/obtain/',user).
+        then(res=>{
             localStorage.setItem('access', res.data.access);
             localStorage.setItem('refresh', res.data.refresh);
+            localStorage.setItem('isLog', true);
+            setReg('true');
             navigate('/courses')
         }).catch(err=>{
             if (err.response.status===401){
