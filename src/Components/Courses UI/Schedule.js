@@ -1,6 +1,7 @@
 
 import RightActive from "../Side Menus/SideMenuRightActive";
-import React, {Component, useState} from "react";
+import React, {Component, useContext, useEffect, useState} from "react";
+import axios from "axios";
 
 
 Date.prototype.today = function () { 
@@ -8,6 +9,8 @@ Date.prototype.today = function () {
 }
 
 export default function Schedule (){
+
+    const [courses,setCourses] = useState()
     const [state,setState] =useState({
         monday:[{name:'Algebra'},{name:'Algebra'},{name:''},{name:'Algebra'}],
     tuesday:[{name:'Algebra'},{name:'Algebra'},{name:''},{name:'Algebra'}],
@@ -17,7 +20,8 @@ export default function Schedule (){
     });
     var newDate = new Date();
     var curr = new Date; // get current date
-var first = curr.getDate() - curr.getDay()+1; // First day is the day of the month - the day of the week
+    var first = curr.getDate() - curr.getDay()+1; // First day is the day of the month - the day of the week
+
 
 
 var firstday = new Date(curr.setDate(first)).toUTCString();

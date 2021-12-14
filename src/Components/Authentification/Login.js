@@ -1,5 +1,5 @@
 import {useState, useContext} from "react";
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {Link, useLocation,useNavigate} from "react-router-dom";
 import axios from "axios";
 import $api, {base_url} from "../App/API";
 import {regContext} from "../../index.js";
@@ -12,9 +12,9 @@ export default function Login() {
     const [twoFA,setTwoFA] = useState('')
     const [renderTokenField,setRenderTokenField] = useState(false)
     const [message,setMessage] = useState('')
-    const navigate = useNavigate()
 
     const [reg, setReg] = useContext(regContext);
+    const navigate = useNavigate()
 
 
 
@@ -25,7 +25,6 @@ export default function Login() {
         then(res=>{
             localStorage.setItem('access', res.data.access);
             localStorage.setItem('refresh', res.data.refresh);
-            localStorage.setItem('isLog', true);
             setReg('true');
             navigate('/courses')
         }).catch(err=>{
@@ -90,7 +89,7 @@ export default function Login() {
                                                         className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
                                                         type="button" onClick={loginUser}>Log in
                                                     </button>
-                                                    <a className="text-muted">Forgot password?</a>
+                                                    <Link to={'/recovery'} className="text-muted">Forgot password?</Link>
                                                 </div>
 
                                                 <div className="d-flex align-items-center justify-content-center pb-4">

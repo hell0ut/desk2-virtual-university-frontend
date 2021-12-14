@@ -9,15 +9,12 @@ export default function SelectForm ({endpoint,setValue,name,filterParams}) {
     const [options,setOptions] =useState ([{id:1,name:'CHE'}])
 
     useEffect(()=>{
-        axios.get(base_url +endpoint).then(res=>{
+        axios.get(base_url + endpoint).then(res=>{
             let opts = res.data;
-            console.log(opts)
-            console.log(filterParams)
             if (filterParams) opts = opts.filter(function (el){
                 console.log(el[filterParams.by].id===filterParams.id, el[filterParams.by].id,filterParams.id);
                 return el[filterParams.by].id===filterParams.id;
             })
-            console.log(opts)
             opts.unshift({id:-1,name:'_'})
             setOptions(opts)
         })

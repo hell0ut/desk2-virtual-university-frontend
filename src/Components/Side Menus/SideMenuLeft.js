@@ -12,18 +12,30 @@ export default function SubMenu (props) {
     const [reg, setReg] = useContext(regContext);
     const nav = useNavigate();
     const LogOut = ()=>{
-        console.log("button log out");
         setReg('false');
         nav('/login');
-        
-        
-        
+        localStorage.clear()
     }
 
+    const Profile = () =>{
+        nav('/profile')
+
+    }
+    
+    const Settings = () =>{
+        nav('/profile')
+    }
+
+    const Marks = () =>{
+        nav('/marks')
+    }
+
+
+
     const [icons,setIcon] = useState(    {icons: [
-            {icon:settings,name:'settings'},
-            {icon:marks,name:'marks'},
-            {icon:profile,name:'profile'},
+            {icon:settings,name:'settings',link:Settings},
+            {icon:marks,name:'marks',link:Marks},
+            {icon:profile,name:'profile',link:Profile},
             {icon:back,name:'back', link:LogOut}
         ]});
 
@@ -76,8 +88,7 @@ function SideMenuButton(props){
         return (
             <div className="row side_menu_el" key={props.name}>
                 <div className="col-12 d-flex justify-content-center">
-                   <button onClick = {props.link}>lol</button>
-                    <img src={props.icon} alt={props.name}  className="img-fluid float-end"/>
+                    <img src={props.icon} alt={props.name} onClick = {props.link} className="img-fluid float-end"/>
                 </div>
             </div>
         );

@@ -43,7 +43,7 @@ header{
 
 .side_menu_el{
     margin-top: 65px;
-
+    cursor: pointer;
 }
 
 .hat{

@@ -81,7 +81,7 @@ function LastBlock(){
                 <div className="col">
                     <div className="row justify-content-left">
                     <div className="col-4 d-flex justify-content-center align-self-center">
-                            <Link to="/login"><img src={id_icon} alt="My profile" className="img-fluid float-end"/></Link>
+                            <Link to="/profile"><img src={id_icon} alt="My profile" className="img-fluid float-end"/></Link>
                         </div>
                         <div className="col-4 ">
                             <div className="row">{personalInfo.name}</div>

@@ -89,8 +89,6 @@ export default function Register()
 
     const regForm = (
         <>
-
-
             <div className="col">
                 <Input val={email} set={setEmail} name="email" type="email"/>
             </div>

@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react";
-import $api from "../App/API";
+import $api, {base_url} from "../App/API";
+import axios from "axios";
+
 
 export default function CoursesPageTestMain(){
 
