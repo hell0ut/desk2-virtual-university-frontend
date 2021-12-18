@@ -13,7 +13,7 @@ import Schedule from "../Courses UI/Schedule";
 import Login from "../Authentification/Login";
 import {ConfirmEmail} from "../Authentification/ConfirmEmail";
 import CoursesPageTestMain from "../Courses UI/CoursesPageTestMain";
-
+import CreateCourse from "../Teacher/CreateCourse";
 
 
 export function CoursesPageTest (){
@@ -127,6 +127,17 @@ export function SchedulePage (){
         );
     
 
+}
+
+export function CreateCoursePage (){
+    return (
+        <div style={{'margin-left': '1%', 'margin-right': '1%'}}>
+            <div className="row">
+            <SubMenu needToRender={true}></SubMenu>
+            <CreateCourse/>
+            </div>
+        </div>
+    );
 }
 
 

@@ -495,6 +495,43 @@ div > .blocks > div > .b{
     position: relative;
 
 }
+.div-materials-tasks{
+    border: 1px solid white;
+    height: 40pt;
+    font-family: arial;
+    border-radius: 5px;
+    font-size: 13pt;
+    color: rgb(255, 255, 255);
+    background-color: rgb(78, 78, 78);
+}
+.headerCreateCourse{
+    font-weight: bold;
+}
+.chapt{
+    font-size: 18pt;
+}
+.ch-1{
+    color:rgb(128, 128, 128);
+    font-size: 15pt;
+    
+}
+.but-comp :hover{
+    
+    font-weight: bold;
+}
+.rc-md-editor{
+    padding: 0px;
+}
+.button-type-underline {
+    display: none !important ;
+  }
+  .button-type-ordered {
+    display: none !important ;
+  }
+
+  .button-type-image {
+    display: none !important ;
+  }
 @media only screen and (min-width: 1800px) {
     div > .blocks > div > .b{
         height: 140pt;
@@ -513,8 +550,34 @@ div > .blocks > div > .b{
             font-size: 15pt;
         }
         }
-    
 
+
+
+.comp-of-chapter{
+    color: #7a738a;
+    font-size: 14pt;
+}
+.b-start{
+    border-left: 2px solid rgb(149, 149, 228);
+    color: #303ebb;
+    font-weight: 600;
+    
+}
+.component-style{
+    color:rgb(41, 88, 177);
+    font-weight: bold;
+    font-size: 17pt;
+    background-color: #b0c1f8b6;
+    height: 60px;
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: 5px;
+    
+}
+.b-bottom{
+    border-bottom: 1px solid rgba(115, 106, 177, 0.733);
+    
+}
 .subject_font{
     color: white;
     font-size: 13pt;

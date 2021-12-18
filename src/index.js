@@ -11,7 +11,7 @@ import {
     HomePage,
     CoursesMainContent,
     CourseDetailMain,
-    SchedulePage, ConfirmEmailPage
+    SchedulePage, CreateCoursePage 
 } from "./Components/App/Pages";
 import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
 import Header from "./Components/Header/Header";
@@ -20,47 +20,51 @@ import NotFound from "./Components/Utils/NotFound";
 import CoursesPageTestMain from "./Components/Courses UI/CoursesPageTestMain";
 import $api, {base_url} from "./Components/App/API";
 
+
+
+
+
 export const regContext = React.createContext();
 
 
 export default function App (){
-    const [reg, setReg] =  useState('true');
-    useEffect(()=>{
-        console.log(reg)
-        console.log("changing reg")
-        setReg(localStorage.getItem('islog'));
-    },[]);
+    
+    const [reg, setReg] =  useState(localStorage.getItem('isLog'));
+    const [status, setStatus] = useState(localStorage.getItem('isTeacher'));
 
+
+
+  
     useEffect(()=>{
-        localStorage.setItem('islog',reg);
-        if(reg==="false"){
-            console.log("hereeeeeeee")
-            return <Navigate to="/login"/> 
-        }
+        localStorage.setItem('isLog',reg);
     },[reg]);
-
-
-    console.log("hi from index");
+    
+    useEffect(()=>{
+       
+        localStorage.setItem('isTeacher',status);
+    },[status]);
+    
+    const privateComponents = {components:[
+    {path:"/courses",el:<CoursesMainContent/>},
+    {path:"/course",el:<CourseDetailMain/>},
+    {path:"/schedule",el:<SchedulePage/>},
+    {path:"/create_course",el:<PrivateRouteTeacher status = {status}><CreateCoursePage/></PrivateRouteTeacher>}
+]}
         return (
-            
+           
                 <BrowserRouter>
-                    <regContext.Provider value={[reg,setReg]}>
+                    <regContext.Provider value={[reg,setReg,setStatus]}>
                     <Header></Header>
-                    
-                    
                     <Routes>
                         <Route path='*' element={<HomePage></HomePage>} />
-                        <Route path="/courses_test" exact element={<CoursesPageTestMain></CoursesPageTestMain>}/>
-                        <Route path="/home" exact element={<HomePage></HomePage>}/>
-                        <Route path="/courses" exact element={<CoursesMainContent></CoursesMainContent>}/>
-                        <Route path="/course" exact  element={<CourseDetailMain></CourseDetailMain>}/>
-                        <Route path="/register" exact element={<RegisterPage></RegisterPage>}>
-                        </Route>
-                        <Route path="/schedule" exact element={<SchedulePage></SchedulePage>}/>
                         <Route path="/login" exact element={<LoginPage></LoginPage>}/>
-                        
+                        <Route path="/home" exact element={<HomePage></HomePage>}/>
+                        <Route path="/register" exact element={<RegisterPage></RegisterPage>}/>
                         <Route element={<NotFound></NotFound>}/>
-
+                        {privateComponents.components.map((c)=>{
+                            return(<Route path={c.path} exact element = {<PrivateRoute auth  = {reg}>{c.el}</PrivateRoute>}></Route>)
+                        })}
+  
                     </Routes>
                     <Footer></Footer>
                     </regContext.Provider>
@@ -73,6 +77,13 @@ export default function App (){
 
 
 
-
+function PrivateRoute({ children, auth}) {
+    
+    return auth === 'true' ? children : <Navigate to="/login" />;
+  }
+function PrivateRouteTeacher({ children, status}) {
+    console.log("iiiiiii",status)
+    return status === 'true' ? children : <Navigate to="/home" />;
+  } 
 
 ReactDOM.render(<App/>,document.getElementById('root'))

@@ -4,22 +4,14 @@ import bell from "../../img/bell_icon.png";
 import id_icon from "../../img/id_icon.png";
 import {Link} from "react-router-dom";
 import {regContext} from "../../index.js";
-import $api, {base_url} from "../App/API";
+import $api from "../App/API";
 
 export default function Header(){
     
     
     const [reg, setReg] = useContext(regContext);
-    let link_courses = "*"
-    function Ah(){
-        return(
-            Puk()
-        )
-    };
-    if (reg === 'true'){
-        Ah = ()=>{return(LastBlock())};
-        link_courses = "/courses"
-    }
+    
+
     
     
     return (
@@ -33,13 +25,16 @@ export default function Header(){
                 <div className="col-6 d-flex justify-content-center align-self-center">
                     <span className="hd_style learn">LEARN</span> <span className="hd_style more">MORE.</span> <span
                     className="hd_style explore">EXPLORE</span> <span className="hd_style our">OUR</span>
-                    <Link to={link_courses}>
+                    <Link to="/courses">
                         <button type="button" className="btn border border-success ms-3 align-self-center"
                                 style={{height: '30px',fontSize:'9pt',borderRadius:'0.5em'}}><span className="courses" >COURSES</span>
                         </button>
                     </Link>
                 </div>
-                <Ah></Ah>
+
+                { reg=="true" ? <LastBlock/>:<Puk/>}
+                
+            
                 <div className="col-1"></div>
             </div>
 
@@ -70,10 +65,11 @@ function Puk(){
 
 function LastBlock(){
     const [personalInfo, setPersonalInfo] = useState("");
-    useEffect(() => {
-        $api.get('auth/user/').then((res2)=>setPersonalInfo({name: res2.data.first_name, surname: res2.data.last_name}));
-      }, [])
-    console.log("in last block")
+    useEffect(()=>{
+        $api.get('auth/user/').then((res2)=> { setPersonalInfo({name: res2.data.first_name, surname: res2.data.last_name})});
+    },[])
+    
+
     return(
         <>
 

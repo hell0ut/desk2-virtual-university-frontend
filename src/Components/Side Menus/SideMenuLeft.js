@@ -9,15 +9,14 @@ import {useNavigate } from "react-router-dom";
 
 
 export default function SubMenu (props) {
-    const [reg, setReg] = useContext(regContext);
+    const [reg, setReg,setStatus] = useContext(regContext);
     const nav = useNavigate();
     const LogOut = ()=>{
         console.log("button log out");
         setReg('false');
-        nav('/login');
-        
-        
-        
+        setStatus('f');
+        nav('/login');   
+        localStorage.clear();
     }
 
     const [icons,setIcon] = useState(    {icons: [
