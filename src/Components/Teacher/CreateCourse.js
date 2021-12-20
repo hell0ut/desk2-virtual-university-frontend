@@ -20,15 +20,15 @@ export default function CreateCourse(){
 
     const [dataChapters, setDataChapters] = useState([]);
     
-    const [chapterList, setChapterList] = useState([]);
+    //const [chapterList, setChapterList] = useState([]);
     
     let index = 0;
     const onAddButtonClick = () => {
-        setDataChapters(dataChapters.concat({}));
+        setDataChapters(dataChapters.concat({title:"", description:"", tasks:[],materials:[]}));
         
     }
     return (
-      <chapterContext.Provider value={[chapterList, setChapterList, dataChapters, setDataChapters]}>
+      <chapterContext.Provider value={[dataChapters, setDataChapters]}>
         <div className="offset-1 col mt-5">
             
         <div className="row col-4 justify-content-start p-0  mb-5"><span className="my-courses p-0">New course</span></div>
@@ -73,10 +73,11 @@ export default function CreateCourse(){
 <div className="row col-4 justify-content-start mb-4"><span className="my-courses chapt mb-2">Chapters</span> </div>
            
 
+            {console.log("before ",dataChapters)}
             {dataChapters.map((e,index)=>{return(
                 <AddChapter id={index}></AddChapter>)
             })}
-           {console.log("here")};
+           
            
             
             <div type="button" className="mb-5 btn btn-outline-dark btn-rounded" onClick = {onAddButtonClick} data-mdb-ripple-color="dark">
@@ -123,8 +124,8 @@ function AddChapter({id}){
     //const [chDescr, setChDescr] = useState();
 
     const [materials, setMaterials] = useState([]);
-    const [tasks, setTasks] = useState([]);
-    const [chapterList, setChapterList,dataChapters, setDataChapters] = useContext(chapterContext);
+    const [tasks, setTasks] = useState(0);
+    const [dataChapters, setDataChapters] = useContext(chapterContext);
     const [dict,setDict] = useState({});
     //setDataChapters(DataChapters.concat(dict));
 
@@ -146,7 +147,7 @@ function AddChapter({id}){
             }
       
       }
-        //console.log(dataChapters);
+        console.log(dataChapters);
     
 
     const changeDescr=(new_value)=>{
@@ -177,9 +178,14 @@ function AddChapter({id}){
           
       }
     
-      console.log(id);
+    
     const onAddButtonClickm = () => {
-        setMaterials(materials.concat(<AddMaterial/>));
+      const a = dataChapters;
+      a[id].materials.push({title:"", body:"", status:false, publishing:"", attachments:[]})
+      setDataChapters(a);
+      
+      setMaterials((prev)=>prev+1);
+        //setMaterials(materials.concat(<AddMaterial/>));
         if(document.getElementById(id).style.display !== "block"){
        document.getElementById(id).style.display = "block"; 
        document.getElementById(id+"_dot").style.backgroundColor = "white";
@@ -208,14 +214,26 @@ function AddChapter({id}){
       } 
     }
     const onAddButtonClickt = () => {
-        setTasks(tasks.concat(<AddTask/>));
+      //const new_m = dataChapters;
+      //const puk = new_m[id].tasks.push({});
+        //console.log("pukk", puk)
+        //setNotesDummyData(notesDummyData.map((x) => {
+          //if (x.id !== itemId) return x;
+          //return { ...x, tag: [...x.tag, selectedTag] };
+        //}));
+        const a = dataChapters;
+        a[id].tasks.push({title:"", body:"", status:false, publishing:"", deadline:"", maxgrade:"", attachments:[]})
+        setDataChapters(a);
+        
+        setTasks((prev)=>prev+1);
         if(document.getElementById(id+"_a").style.display !== "block"){
             document.getElementById(id+"_a").style.display = "block"; 
             document.getElementById(id+"_dot1").style.backgroundColor = "white"}
     }
     return(
+      
         <div className="mb-3 mt-3 ">
-
+{console.log(dataChapters)}
 <div className="row col-4 justify-content-start p-0  w-100 border-top mb-2 mt-2"><span className="my-courses col-7 mt-3 p-0 ch-1 " style={{ color:"rgb(62, 87, 202)"}}>- Chapter</span ><a className="col mt-4 d-flex text-secondary justify-content-start" onClick={deleteItem}>delete</a></div>
             <form className="row col-8 mb-3 mt-3">
             <div  className="col p-0">  <input type="title"  maxlength="80" className="form-control search_row" id="inputTitle" aria-describedby="titleAria" placeholder="Title..." onChange={e=>changeTitle(e.target.value)}></input></div>
@@ -239,7 +257,8 @@ function AddChapter({id}){
                 </h2>
                 <div id={id} class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
                 <div class="accordion-body">
-                  {materials}
+                {dataChapters[id].materials.map((e,index)=>{return(
+                <AddMaterial id_el={index} id_ch = {id}></AddMaterial>)})}
                 </div>
                 </div>
                 </div>
@@ -261,8 +280,12 @@ function AddChapter({id}){
 
                 </h2>
               <div id={id+"_a"} class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne1">
+                {console.log("hereee ",dataChapters)}
                 <div class="accordion-body">
-                {tasks}
+               {dataChapters[id].tasks.map((e,index)=>{return(
+                <AddTask id_el={index} id_ch = {id}></AddTask>)})}
+            
+        
                 </div>
               </div>
             </div>
@@ -275,13 +298,13 @@ function AddChapter({id}){
 }
 
 function AddTask({id_ch, id_el}){
-    
+    console.log("in task");
     return(
       <>
-      <ComponentBod name="- Task" ></ComponentBod>
+      <ComponentBod id_el = {id_el} id_ch = {id_ch} name="- Task" type = "t"></ComponentBod>
       <div className="b-bottom pb-4">
-      <DeadlineComp/>
-      <AttachmentComponent/>
+      <DeadlineComp id_el = {id_el} id_ch = {id_ch}/>
+      <AttachmentComponent id_el = {id_el} id_ch = {id_ch} type = "t"/>
       </div>
       </>
     
@@ -289,12 +312,12 @@ function AddTask({id_ch, id_el}){
 }
 
 
-function AddMaterial(){
+function AddMaterial({id_ch, id_el}){
     return(
       <>
-      <ComponentBod name="- Material"></ComponentBod>
+      <ComponentBod id_el = {id_el} id_ch = {id_ch} name="- Material" type = "m"></ComponentBod>
       <div className="b-bottom pb-4">
-      <AttachmentComponent/>
+      <AttachmentComponent id_el = {id_el} id_ch = {id_ch} type = "t"/>
       </div>
       </>
     )
@@ -318,18 +341,22 @@ const getDateTimeNow =()=>{
   return d+"T"+t+"Z";
 }
 
-function ComponentBod({name}){
 
-    const [compTitle, setCompTitle] = useState("");
+
+function ComponentBod({id_el, id_ch, name, type}){
+    const [dataChapters, setDataChapters] = useContext(chapterContext);
+    //const [dict, setDict] = useState({});
+    
+    //const [compTitle, setCompTitle] = useState("");
     const [compBody, setCompBody] = useState("");
-    const [isArchived, setIsArchived] = useState("");
-    const [dd, sdd] = useState("");
-    const [td,std] = useState("00:00");
-    const [dateTimePublishing, setDateTimePublishing] = useState(()=>{return getDateTimeNow()});
+    const [isArchived, setIsArchived] = useState(false);
+
+
+    //const [dateTimePublishing, setDateTimePublishing] = useState(()=>{return getDateTimeNow()});
 
     const [d, sd] = useState("");
     const [t,st] = useState("00:00");
-    const [dateTimeDeadline, setDateTimeDeadline] = useState(getDateTimeNow());
+ 
 
     const mdEditor = React.useRef(null);
     const mdParser = new MarkdownIt();
@@ -337,14 +364,45 @@ function ComponentBod({name}){
     const handleEditorChange = ({ html, text }) => {
         const newValue = text.replace(/\d/g, "");
         setCompBody(newValue);
+        changeBody(newValue);
+
       };
 
-    const getUtcTime =(date, time, setdate, settime, setdatetime)=>{
+    const getUtcTime =(date, time, setdate, settime)=>{
       setdate(date);
       settime(time)
       const utcDateTime = date+"T"+time+":00Z";
-      setdatetime(utcDateTime);
+      changePublishing(utcDateTime);
     }
+
+
+
+    const changeTitle =(new_value)=>{
+      console.log(dataChapters);
+      const p = dataChapters;
+      type ==="t" ? p[id_ch].tasks[id_el].title = new_value : p[id_ch].materials[id_el].title = new_value; 
+      setDataChapters(p)
+    }
+    const changeBody =(new_value)=>{
+      const p = dataChapters;
+      type ==="t" ? p[id_ch].tasks[id_el].body = new_value : p[id_ch].materials[id_el].body = new_value;
+      setDataChapters(p)
+    }
+    const changePublishing =(new_value)=>{
+      const p = dataChapters;
+      type ==="t" ? p[id_ch].tasks[id_el].publishing = new_value : p[id_ch].materials[id_el].publishing = new_value;
+      setDataChapters(p)
+    }
+    const changeStatus =(new_value)=>{
+     // 
+      const nnv = !new_value;
+      const p = dataChapters;
+      type ==="t" ? p[id_ch].tasks[id_el].status = nnv : p[id_ch].materials[id_el].status = nnv;
+      setDataChapters(p)
+    }
+
+
+
 
     //const setTimeNow=()=>{
       //document.getElementById("")
@@ -355,8 +413,9 @@ function ComponentBod({name}){
         <div>
             <div className="component-style row  mt-3 mb-4">{name}</div>
             <form className="row col-10 mb-4 mt-3">
-            <div  className="col p-0">  <input type="title"  maxlength="80" className="form-control search_row" id="inputTitle" aria-describedby="titleAria" placeholder="Title..." onChange={e=>setCompTitle(e.target.value)}></input></div>
+            <div  className="col p-0">  <input type="title"  maxlength="80" className="form-control search_row" id="inputTitle" aria-describedby="titleAria" placeholder="Title..." onChange={e=>changeTitle(e.target.value)}></input></div>
             </form>
+            {console.log(dataChapters)}
           <span className="fw-bold">Body:</span>
           <div className="row p-0 mt-2 ">
             <Editor
@@ -371,18 +430,18 @@ function ComponentBod({name}){
         </div>
 <div className="row b-start ps-4  mt-4">
 <div class="col-2  mt-3 form-check">
-  <input class="mt-3 form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+  <input class="mt-3 form-check-input" type="checkbox" onChange={()=>{setIsArchived(prev => {return(!prev)});changeStatus(isArchived)}} id="flexCheckDefault"/>
   <label class="mt-2 form-check-label" for="flexCheckDefault">
     is archived
   </label>
 </div>
   </div>
   <div className="row b-start ps-4 mt-5 mb-5">
-  <div  className="col-6"><span className="me-2">Date of publishing:</span><input type="date" onChange ={(ev)=>getUtcTime(ev.target.value,t, sd,st, setDateTimePublishing)} id="bday" style={{border:"1px solid rgb(159, 159, 167)",borderRadius:"10px", height:"40px", padding:"9px"}}/> </div>
+  <div  className="col-6"><span className="me-2">Date of publishing:</span><input type="date" onChange ={(ev)=>getUtcTime(ev.target.value,t, sd,st)} id="bday" style={{border:"1px solid rgb(159, 159, 167)",borderRadius:"10px", height:"40px", padding:"9px"}}/> </div>
 
   <div className="col-4 ">
   <label className="me-2" for="startTime">Publish time: </label>
-  <input type="time" id="startTime" onChange ={(ev)=>getUtcTime(d,ev.target.value,sd,st,setDateTimePublishing)}  style={{border:"1px solid rgb(159, 159, 167)",borderRadius:"10px", height:"40px", padding:"7px"}}/>
+  <input type="time" id="startTime" onChange ={(ev)=>getUtcTime(d,ev.target.value,sd,st)}  style={{border:"1px solid rgb(159, 159, 167)",borderRadius:"10px", height:"40px", padding:"7px"}}/>
   {//<div onClick ={}>now</div>
   }
   </div>
@@ -393,51 +452,83 @@ function ComponentBod({name}){
 }
 
 
-function DeadlineComp(){
+function DeadlineComp({id_el, id_ch}){
+  const [dataChapters, setDataChapters] = useContext(chapterContext);
   const [dd, sdd] = useState("");
   const [td,std] = useState("00:00");
-  const [dateTimeDeadline, setDateTimeDeadline] = useState(()=>{return getDateTimeNow()});
+  //const [dateTimeDeadline, setDateTimeDeadline] = useState(()=>{return getDateTimeNow()});
 
 
-  const getUtcTime =(date, time, setdate, settime, setdatetime)=>{
+
+
+  const getUtcTime =(date, time, setdate, settime)=>{
     setdate(date);
     settime(time)
     const utcDateTime = date+"T"+time+":00Z";
-    setdatetime(utcDateTime);
+    changeDeadline(utcDateTime);
   }
- 
+
+  const changeDeadline =(new_value)=>{
+    const p = dataChapters;
+    p[id_ch].tasks[id_el].deadline = new_value;
+    setDataChapters(p)
+  }
+
+  const changeMaxGrade =(new_value)=>{
+    const p = dataChapters;
+    p[id_ch].tasks[id_el].maxgrade = new_value;
+    setDataChapters(p)
+  }
   return(
     <>
     <div className="row b-start ps-4 mb-5">
-  <div  className="col-6"><span className="me-2">Deadline Date:</span><input type="date" onChange ={(ev)=>getUtcTime(dd,ev.target.value,sdd,std,setDateTimeDeadline)} id="bday" style={{border:"1px solid rgb(159, 159, 167)",borderRadius:"10px", height:"40px", padding:"9px"}}/> </div>
+  <div  className="col-6"><span className="me-2">Deadline Date:</span><input type="date" onChange ={(ev)=>getUtcTime(ev.target.value,td,sdd,std)} id="bday" style={{border:"1px solid rgb(159, 159, 167)",borderRadius:"10px", height:"40px", padding:"9px"}}/> </div>
   <div className="col-4 ">
   <label className="me-2" for="startTime">Deadline time: </label> 
-  <input type="time" id="startTime" onChange ={(ev)=>getUtcTime(ev.target.value,td,sdd,std,setDateTimeDeadline)} style={{border:"1px solid rgb(159, 159, 167)",borderRadius:"10px", height:"40px", padding:"7px"}}/>
+  <input type="time" id="startTime" onChange ={(ev)=>getUtcTime(dd,ev.target.value,sdd,std)} style={{border:"1px solid rgb(159, 159, 167)",borderRadius:"10px", height:"40px", padding:"7px"}}/>
   </div>
   </div>
-  <div className="row mb-5 col-5 b-start"><span className="ms-3 mt-3">Define your max grade: </span><input type="text" className="form-control ms-3 mb-2 mt-2" placeholder="max grade"/></div>
+  <div className="row mb-5 col-5 b-start"><span className="ms-3 mt-3">Define your max grade: </span><input type="text" className="form-control ms-3 mb-2 mt-2" placeholder="max grade" onChange={(ev)=>changeMaxGrade(ev.target.value)}/></div>
   </>
   )
 }
 
-function AttachmentComponent(){
-  const [attachments, setAttachments] = useState([]);
+function AttachmentComponent({id_ch,id_el,type}){
+  const [dataChapters, setDataChapters] = useContext(chapterContext);
+  const [attachments, setAttachments] = useState(0);
   const onAddButtonClick = () => {
-    setAttachments(attachments.concat(<AddAttachment/>));
+      const a = dataChapters;
+        a[id_ch].tasks[id_el].attachments.push({attachment:""})
+        setDataChapters(a);
+        setAttachments(prev=>prev+1);
+    //setAttachments(attachments.concat(<AddAttachment/>));
   }
   
   return(
     <>
     <div type="button" class="btn btn-outline-dark btn-rounded" onClick = {onAddButtonClick} data-mdb-ripple-color="dark">+attachment</div>
-{attachments}
+    {dataChapters[id_ch].tasks[id_el].attachments.map((e,index)=>{return(
+                <AddAttachment id_el_el={index} id_ch = {id_ch} id_el = {id_el} type={type}></AddAttachment>)})}
 </>
   )
 }
 
-function AddAttachment(){
+function AddAttachment({id_ch,id_el,id_el_el, type}){
+  const [dataChapters, setDataChapters] = useContext(chapterContext);
+ // const [attachments, setAttachments] = useState(0);
+  const changeAtt =(new_value)=>{
+    {console.log("s",dataChapters)}
+    const p = dataChapters;
+    p[id_ch].tasks[id_el].attachments[id_el_el].attachment = new_value;
+    setDataChapters(p)
+    {console.log("e", dataChapters)}
+    //setAttachments(prev=>prev+1);
+  }
     return(
+      
         <div class="mb-3 mt-4">
-        <input class="form-control" type="file" id="formFile"/>
+          //{console.log(dataChapters)}
+        <input class="form-control" type="file" onChange = {(ev)=>changeAtt(ev.target.value)} id="formFile"/>
       </div>
     )
 }
