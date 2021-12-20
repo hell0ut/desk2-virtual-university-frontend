@@ -1,7 +1,8 @@
-import {useState} from "react";
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {useState, useContext} from "react";
+import {Link, useLocation,useNavigate} from "react-router-dom";
 import axios from "axios";
 import $api, {base_url} from "../App/API";
+import {regContext} from "../../index.js";
 
 export default function Login() {
 
@@ -13,15 +14,21 @@ export default function Login() {
     const [message,setMessage] = useState('')
     const navigate = useNavigate()
 
+    const [reg, setReg, setStatus] = useContext(regContext);
 
 
 
     const loginUser = () => {
         const user = {email:email,password:password}
         if (twoFA) user['2FA_code'] = twoFA;
-        axios.post(base_url+'auth/token/obtain/',user).then(res=>{
+        axios.post(base_url+'auth/token/obtain/',user).
+        then(res=>{
             localStorage.setItem('access', res.data.access);
             localStorage.setItem('refresh', res.data.refresh);
+           // localStorage.setItem('isLog', true);
+            setReg('true');
+            $api.get('auth/user/').then(r=>r.data.student_card_id ? setStatus("false"):setStatus("true"))
+            
             navigate('/courses')
         }).catch(err=>{
             if (err.response.status===401){
@@ -85,7 +92,7 @@ export default function Login() {
                                                         className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
                                                         type="button" onClick={loginUser}>Log in
                                                     </button>
-                                                    <a className="text-muted">Forgot password?</a>
+                                                    <Link to={'/recovery'} className="text-muted">Forgot password?</Link>
                                                 </div>
 
                                                 <div className="d-flex align-items-center justify-content-center pb-4">

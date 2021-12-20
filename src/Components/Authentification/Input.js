@@ -1,3 +1,5 @@
+import $api from "../App/API";
+
 
 export default function Input(props){
     return (

@@ -9,15 +9,12 @@ export default function SelectForm ({endpoint,setValue,name,filterParams}) {
     const [options,setOptions] =useState ([{id:1,name:'CHE'}])
 
     useEffect(()=>{
-        axios.get(base_url +endpoint).then(res=>{
+        axios.get(base_url + endpoint).then(res=>{
             let opts = res.data;
-            console.log(opts)
-            console.log(filterParams)
             if (filterParams) opts = opts.filter(function (el){
                 console.log(el[filterParams.by].id===filterParams.id, el[filterParams.by].id,filterParams.id);
                 return el[filterParams.by].id===filterParams.id;
             })
-            console.log(opts)
             opts.unshift({id:-1,name:'_'})
             setOptions(opts)
         })
@@ -26,10 +23,10 @@ export default function SelectForm ({endpoint,setValue,name,filterParams}) {
 
     return (
         <>
-        <div className={'row mt-1'}>
-            <span className={'font-monospace'}>Select your {name}</span>
+        <div className={'row mt-1 mb-2 p-0'}>
+            <span >Select your {name}</span>
         </div>
-        <div className={'row ms-2 me-2'}>
+        <div className={'row'}>
                 <select className={'form-select'} value={val || options[0]} onChange={(e)=>{
                     const index = e.target.selectedIndex;
                     const el = e.target.childNodes[index]
