@@ -11,5 +11,3 @@ export default function Input(props){
         </div>
     );
 }
-
-$api.post('coures/')

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import course_image1 from "../../img/prev.png";
 import course_image2 from "../../img/prev2.png";
 import course_image3 from "../../img/prev3.png";
@@ -9,33 +9,40 @@ import search_im from "../../img/search_Icon.png";
 import arrow_left from "../../img/arrow_left.png";
 import arrow_right from "../../img/arrow_right.png";
 import {Link} from "react-router-dom";
+import $api from "../App/API";
+
+
+const images = [course_image1,course_image2,course_image3,course_image4,course_image5,course_image6]
+
 
 export default function CoursesList (){
 
-    const[state,setState] = useState(     {courses:[
-            {id:1,subject:'Linear Algebra',teacher:'L. Baranovska',image:course_image1},
-            {id:2,subject:'Linear Algebra',teacher:'L. Baranovska',image:course_image2},
-            {id:3,subject:'Linear Algebra',teacher:'L. Baranovska',image:course_image3},
-            {id:4,subject:'Linear Algebra',teacher:'L. Baranovska',image:course_image4},
-            {id:5,subject:'Linear Algebra',teacher:'L. Baranovska',image:course_image5},
-            {id:6,subject:'Linear Algebra',teacher:'L. Baranovska',image:course_image6},
-            {id:7,subject:'Linear Algebra',teacher:'L. Baranovska',image:course_image3},
-            {id:8,subject:'Linear Algebra',teacher:'L. Baranovska',image:course_image4},
-            {id:9,subject:'Linear Algebra',teacher:'L. Baranovska',image:course_image5}
-        ]});
+    const [coursesList,setCoursesList] = useState([
+        {id:1,subject:'Linear Algebra',owner:{first_name:'L. Baranovska',last_name:'Chelka'},image:course_image1},
+    ])
+
+
+    useEffect(()=>{
+        $api.get('courses/?enrolled=true').then(res=>{
+            setCoursesList(res.data)
+            console.log(res.data)
+        })
+    },[])
+
+
 
     return (
 
         <div className="col-6 px-5">
             <div className="row d-flex justify-content-around hat mb-1">
                 <div className="col-4 justify-content-start"><span className="my-courses">My courses</span></div>
-                <div class="dropdown col-1 align-self-center">
-    <a class="btn dropdown_button dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <div className="dropdown col-1 align-self-center">
+    <a className="btn dropdown_button dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
     in progress
     </a>
 
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <li><a class="dropdown-item" style={{fontSize:"9pt"}} href="#">finished</a></li>
+    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a className="dropdown-item" style={{fontSize:"9pt"}} href="#">finished</a></li>
     </ul>
     </div>
 
@@ -67,7 +74,7 @@ export default function CoursesList (){
             </div>
 
             <div className="row row-cols-3">
-                {state.courses.map((course)=>{
+                {coursesList.map((course)=>{
                     return <CourseCard props={course}></CourseCard>
                 })}
             </div>
@@ -118,16 +125,17 @@ export default function CoursesList (){
     );
 }
 
+
 function CourseCard (props){
-        const {id,subject,teacher,image}=props.props;
+    const {id,title,owner} = props.props
         return (
             <div className="col mt-2 card_size p-1" key={id}>
-                <Link to="/course">
+                <Link to={'/courses/'+id}>
                     <div className="card card_size">
-                        <img className="card-img-top" src={image} alt="Card image cap"/>
-                        <div className="card-body ">
-                            <h5 className="card-title titlecard">{subject}</h5>
-                            <p className="card-text description_font">{teacher}</p>
+                        <img className="card-img-top" src={images[id%6]} alt="Card image cap"/>
+                        <div className="card-body">
+                            <h5 className="card-title titlecard">{title}</h5>
+                            <p className="card-text description_font">{owner.last_name} {owner.first_name[0]+'.'}</p>
                         </div>
                     </div>
                 </Link>

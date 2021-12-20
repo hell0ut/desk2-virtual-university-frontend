@@ -49,7 +49,7 @@ export default function SubMenu (props) {
                                 <span className="tabs tabs1 d-flex justify-content-center align-items-center  "> My Courses</span>
                             </div>
                         </Link>
-                        <Link to="/to-do">
+                        <Link to="/kanban">
                             <div className="vtabs d-flex justify-content-end">
                                 <span className="tabs tabs2 d-flex justify-content-center align-items-center "> To do List</span>
                             </div>

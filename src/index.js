@@ -11,7 +11,7 @@ import {
     HomePage,
     CoursesMainContent,
     CourseDetailMain,
-    SchedulePage, ProfilePage, SettingsPage, MarksPage, ResetPassPage
+    SchedulePage, ProfilePage, SettingsPage, MarksPage, ResetPassPage, KanbanPage
 } from "./Components/App/Pages";
 import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
 import Header from "./Components/Header/Header";
@@ -40,15 +40,34 @@ export default function App (){
                     
                     
                     <Routes>
-                        <Route path='*' element={<HomePage></HomePage>} />
                         <Route path="/courses_test" exact element={<CoursesPageTestMain></CoursesPageTestMain>}/>
                         <Route path="/home" exact element={<HomePage></HomePage>}/>
 
                         {/*Courses*/}
 
-                        <Route path="/courses" exact element={<CoursesMainContent></CoursesMainContent>}/>
-                        <Route path="/course" exact  element={<CourseDetailMain></CourseDetailMain>}/>
+                        <Route path="/courses" exact element={<CoursesMainContent></CoursesMainContent>}>
+
+                        </Route>
                         <Route path="/schedule" exact element={<SchedulePage></SchedulePage>}/>
+                        <Route path="/kanban" exact element={<KanbanPage></KanbanPage>}/>
+                        <Route
+                            exact
+                            path="/courses/:course_id"
+                            element={<CourseDetailMain></CourseDetailMain>}
+                        />
+
+                        <Route
+                            exact
+                            path="/courses/:course_id/:chapter_id/tasks/:task_id"
+                            element={<CourseDetailMain></CourseDetailMain>}
+                        />
+
+                        <Route
+                            exact
+                            path="/courses/:course_id/:chapter_id/materials/:material_id"
+                            element={<CourseDetailMain></CourseDetailMain>}
+                        />
+
 
 
                         {/*Auth*/}
@@ -62,8 +81,9 @@ export default function App (){
                         <Route path="/profile" exact element={<ProfilePage></ProfilePage>}/>
                         <Route path="/settings" exact element={<SettingsPage></SettingsPage>}/>
                         <Route path="/marks" exact element={<MarksPage></MarksPage>}/>
-                        
+
                         <Route element={<NotFound></NotFound>}/>
+                        <Route path='*' element={<HomePage></HomePage>} />
 
                     </Routes>
                     <Footer></Footer>

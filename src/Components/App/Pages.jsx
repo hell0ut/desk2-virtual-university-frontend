@@ -17,19 +17,20 @@ import Profile from "../Profile/Profile";
 import Settings from "../Profile/Settings";
 import Marks from "../Profile/Marks";
 import ResetPassword from "../Authentification/ResetPassword";
+import Kanban from "../Courses UI/Kanban";
 
 
-
-export function CoursesPageTest (){
+export function KanbanPage (){
     return (
         <div style={{'margin-left': '1%', 'margin-right': '1%'}}>
             <div className="row">
                 <SubMenu needToRender={true}></SubMenu>
-                <CoursesPageTestMain></CoursesPageTestMain>
+                <Kanban></Kanban>
             </div>
         </div>
     );
 }
+
 
 export function ResetPassPage (){
     return (
@@ -122,7 +123,9 @@ export function LoginPage (){
 
 
 export function CourseDetailMain (){
-    
+
+        console.log('ЧЕ БЛЯ')
+
         return (
             <div style={{'margin-left': '1%', 'margin-right': '1%'}}>
                 <div className="row">

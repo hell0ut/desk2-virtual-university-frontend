@@ -15,12 +15,49 @@ export default function Header(){
         return(
             Puk()
         )
-    };
+    }
+
     if (reg === 'true'){
         Ah = ()=>{return(LastBlock())};
         link_courses = "/courses"
     }
-    
+
+
+    function LastBlock(){
+        const [personalInfo, setPersonalInfo] = useState("");
+        useEffect(() => {
+            $api.get('auth/user/').
+            then((res2)=>setPersonalInfo({name: res2.data.first_name, surname: res2.data.last_name})).
+            catch(err=>{
+                setReg('false')
+                localStorage.clear()
+                }
+            );
+        }, [])
+        console.log("in last block")
+        return(
+            <>
+
+                <div className="col-1 d-flex justify-content-end align-self-center"><img src={bell} alt=""/></div>
+                <div className="col">
+                    <div className="row justify-content-left">
+                        <div className="col-4 d-flex justify-content-center align-self-center">
+                            <Link to="/profile"><img src={id_icon} alt="My profile" className="img-fluid float-end"/></Link>
+                        </div>
+                        <div className="col-4 ">
+                            <div className="row">{personalInfo.name}</div>
+                            <div className="row">{personalInfo.surname}</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </>
+        );
+    }
+
+
     
     return (
        
@@ -68,30 +105,3 @@ function Puk(){
 }
 
 
-function LastBlock(){
-    const [personalInfo, setPersonalInfo] = useState("");
-    useEffect(() => {
-        $api.get('auth/user/').then((res2)=>setPersonalInfo({name: res2.data.first_name, surname: res2.data.last_name}));
-      }, [])
-    console.log("in last block")
-    return(
-        <>
-
-<div className="col-1 d-flex justify-content-end align-self-center"><img src={bell} alt=""/></div>
-                <div className="col">
-                    <div className="row justify-content-left">
-                    <div className="col-4 d-flex justify-content-center align-self-center">
-                            <Link to="/profile"><img src={id_icon} alt="My profile" className="img-fluid float-end"/></Link>
-                        </div>
-                        <div className="col-4 ">
-                            <div className="row">{personalInfo.name}</div>
-    <div className="row">{personalInfo.surname}</div>
-                        </div>
-                    </div>
-</div>
-
-
-        
-        </>
-    );
-}
