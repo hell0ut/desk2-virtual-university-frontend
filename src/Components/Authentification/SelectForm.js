@@ -23,10 +23,10 @@ export default function SelectForm ({endpoint,setValue,name,filterParams}) {
 
     return (
         <>
-        <div className={'row mt-1'}>
-            <span className={'font-monospace'}>Select your {name}</span>
+        <div className={'row mt-1 mb-2 p-0'}>
+            <span >Select your {name}</span>
         </div>
-        <div className={'row ms-2 me-2'}>
+        <div className={'row'}>
                 <select className={'form-select'} value={val || options[0]} onChange={(e)=>{
                     const index = e.target.selectedIndex;
                     const el = e.target.childNodes[index]

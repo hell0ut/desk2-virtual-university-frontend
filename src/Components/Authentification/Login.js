@@ -12,9 +12,9 @@ export default function Login() {
     const [twoFA,setTwoFA] = useState('')
     const [renderTokenField,setRenderTokenField] = useState(false)
     const [message,setMessage] = useState('')
-
-    const [reg, setReg] = useContext(regContext);
     const navigate = useNavigate()
+
+    const [reg, setReg, setStatus] = useContext(regContext);
 
 
 
@@ -25,7 +25,10 @@ export default function Login() {
         then(res=>{
             localStorage.setItem('access', res.data.access);
             localStorage.setItem('refresh', res.data.refresh);
+           // localStorage.setItem('isLog', true);
             setReg('true');
+            $api.get('auth/user/').then(r=>r.data.student_card_id ? setStatus("false"):setStatus("true"))
+            
             navigate('/courses')
         }).catch(err=>{
             if (err.response.status===401){
