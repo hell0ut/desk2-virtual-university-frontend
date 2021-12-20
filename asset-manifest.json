@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/desk2-virtual-university-frontend/static/css/main.9f950833.chunk.css",
+    "main.js": "/desk2-virtual-university-frontend/static/js/main.1bdd37a0.chunk.js",
+    "main.js.map": "/desk2-virtual-university-frontend/static/js/main.1bdd37a0.chunk.js.map",
+    "runtime-main.js": "/desk2-virtual-university-frontend/static/js/runtime-main.423b9fbf.js",
+    "runtime-main.js.map": "/desk2-virtual-university-frontend/static/js/runtime-main.423b9fbf.js.map",
+    "static/css/2.b74e6fe2.chunk.css": "/desk2-virtual-university-frontend/static/css/2.b74e6fe2.chunk.css",
+    "static/js/2.1a1c765b.chunk.js": "/desk2-virtual-university-frontend/static/js/2.1a1c765b.chunk.js",
+    "static/js/2.1a1c765b.chunk.js.map": "/desk2-virtual-university-frontend/static/js/2.1a1c765b.chunk.js.map",
+    "index.html": "/desk2-virtual-university-frontend/index.html",
+    "static/css/2.b74e6fe2.chunk.css.map": "/desk2-virtual-university-frontend/static/css/2.b74e6fe2.chunk.css.map",
+    "static/css/main.9f950833.chunk.css.map": "/desk2-virtual-university-frontend/static/css/main.9f950833.chunk.css.map",
+    "static/js/2.1a1c765b.chunk.js.LICENSE.txt": "/desk2-virtual-university-frontend/static/js/2.1a1c765b.chunk.js.LICENSE.txt",
+    "static/media/banner_image.4f77eff2.png": "/desk2-virtual-university-frontend/static/media/banner_image.4f77eff2.png",
+    "static/media/prev.c99db69d.png": "/desk2-virtual-university-frontend/static/media/prev.c99db69d.png",
+    "static/media/prev2.94c8796b.png": "/desk2-virtual-university-frontend/static/media/prev2.94c8796b.png",
+    "static/media/prev3.27554d12.png": "/desk2-virtual-university-frontend/static/media/prev3.27554d12.png",
+    "static/media/prev4.dcd19690.png": "/desk2-virtual-university-frontend/static/media/prev4.dcd19690.png",
+    "static/media/prev5.75469d29.png": "/desk2-virtual-university-frontend/static/media/prev5.75469d29.png",
+    "static/media/prev6.c0a21ac4.png": "/desk2-virtual-university-frontend/static/media/prev6.c0a21ac4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.423b9fbf.js",
+    "static/css/2.b74e6fe2.chunk.css",
+    "static/js/2.1a1c765b.chunk.js",
+    "static/css/main.9f950833.chunk.css",
+    "static/js/main.1bdd37a0.chunk.js"
+  ]
+}
