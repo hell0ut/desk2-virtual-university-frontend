@@ -1,6 +1,6 @@
 # desk2-virtual-university-frontend
 This is a university project. A study platform &amp; university workspace for both students and teachers build with Django, React.js and PostgreSQL. Frontend repo.
-#technologies
+# technologies
 usage of React hooks (useState, useContext, useEffect), OOP, axios for REST API requests to backend (post,get,JWT), cookies, HTML, CSS, Bootstrap, templates, conditional rendering, login/logout implementation, DB records retrieval with filtering, usage of open-source extensions
 ## Some screenshots
 ![image](https://user-images.githubusercontent.com/43760986/176120017-a7f75cc7-6934-473d-8c62-bb92c1bc6c2a.png)
