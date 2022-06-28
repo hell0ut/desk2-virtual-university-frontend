@@ -109,13 +109,7 @@ export default function Login() {
                                     <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
                                         <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                                             <h4 className="mb-4">We are more than just a company</h4>
-                                            <p className="small mb-0">The peoples will soon
-                                                that Germany under National Socialism does not desire the
-                                                enmity of other peoples. I want once again to be a prophet.
-                                                If the international Finance-Jewry inside and outside of Europe
-                                                should succeed in plunging the peoples of the earth once again into a world
-                                                war, the result will be not the Bolshevization of earth, and thus a Jewish
-                                                victory, but the annihilation of the Jewish race in Europe.</p>
+                                            <p className="small mb-0"></p>
                                         </div>
                                     </div>
                                 </div>

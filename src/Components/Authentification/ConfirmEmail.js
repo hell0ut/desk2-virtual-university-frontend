@@ -16,10 +16,8 @@ export class ConfirmEmail extends Component{
     render() {
         if (!this.state.email){
             console.log(this.props.location);
-            return <Navigate penis="huesos" message="You don't have access to this page. Please first sign in pls" to={{
+            return <Navigate  message="You don't have access to this page. Please first sign in pls" to={{
                 pathname:'/login',
-                penis:'huesos',
-                state:{penis:'huesos'}
             }
             }/>;
 
